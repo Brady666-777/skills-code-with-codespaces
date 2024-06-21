@@ -1,10 +1,8 @@
 package com.example.calender_app;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
+
 
 @Entity
 public class CalendarEvent {
@@ -12,31 +10,24 @@ public class CalendarEvent {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private LocalDateTime datetime;
+
+    private LocalDateTime dateTime;
     private String description;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
+    // Default constructor
+    public CalendarEvent() {}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getDatetime() {
-        return datetime;
-    }
-
-    public void setDatetime(LocalDateTime datetime) {
-        this.datetime = datetime;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
+    // Constructor with parameters
+    public CalendarEvent(LocalDateTime dateTime, String description) {
+        this.dateTime = dateTime;
         this.description = description;
     }
+
+    // Getters and setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public LocalDateTime getDateTime() { return dateTime; }
+    public void setDateTime(LocalDateTime dateTime) { this.dateTime = dateTime; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 }

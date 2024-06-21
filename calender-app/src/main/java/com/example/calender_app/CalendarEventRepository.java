@@ -1,6 +1,6 @@
 package com.example.calender_app;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CalendarEventRepository extends CrudRepository<CalendarEvent, Long> {
+public interface CalendarEventRepository extends JpaRepository<CalendarEvent, Long> {
 }
